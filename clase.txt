@@ -1,0 +1,12 @@
+if(j%2)==0 es par, falso: numero par
+if(j%2): el resto de esa division es 0, al introducir un 0 en la condicion lo toma como falso
+
+if(j%1)==1 es impar, verdadero: numero impar
+if(j%1): el resto de esa division es 1, al introducir un 1 en la condicion lo toma como verdadero
+
+instanciar un objeto estatica: Persona p1 = new Persona();
+instanciar un objeto dinamica: Persona* aux = &p1;
+
+A* v[10];
+*(v[0]+1)==v[1];
+*v[0]+1;

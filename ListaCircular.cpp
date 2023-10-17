@@ -11,6 +11,7 @@ void desplegarLista();
 void buscarNodo();
 void modificar();
 void eliminar();
+void ordenar();
 
 int main()
 {
@@ -192,4 +193,9 @@ void eliminar()
         } while (actual!=primero);
         
     }
+}
+void ordenar()
+{
+    Nodo* actual = primero;
+    
 }

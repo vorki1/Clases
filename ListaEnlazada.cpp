@@ -86,20 +86,20 @@ class Lista
             {
                 if(nuevo->getFigura()->getNumLados()<first->getFigura()->getNumLados())
                 {
-                    last->setNext(nuevo);
                     nuevo->setNext(first);
+                    last->setNext(nuevo);
                     first=nuevo;
                 }
                 else
                 {
                     Nodo* actual = first;
                     Nodo* anterior = actual;
-                    while(lados>actual->getFigura()->getNumLados() && actual->getNext()==first)
+                    while(lados>=actual->getFigura()->getNumLados() && actual->getNext()!=first)
                     {
                         anterior = actual;
                         actual = actual->getNext();
                     }
-                    if(lados>actual->getFigura()->getNumLados())
+                    if(lados>=actual->getFigura()->getNumLados())
                     {
                         actual->setNext(nuevo);
                         nuevo->setNext(first);
@@ -128,6 +128,30 @@ class Lista
             } while (actual!=first);
             
         }
+        void ordenarDatos()
+        {
+            Nodo* actual = first;
+            Nodo* siguiente,*aux;
+            
+            do
+            {
+                siguiente= actual->getNext();
+
+                do
+                {
+                    if(actual->getFigura()->getNumLados()>siguiente->getFigura()->getNumLados())
+                    {
+                        //Terminar codigo
+                    }
+                    siguiente = siguiente->getNext();
+                } while (siguiente!=first);
+                actual = actual->getNext();
+                siguiente = actual->getNext();
+                
+            } while (actual!=first);
+            
+            
+        }
 };
 
 
@@ -135,10 +159,10 @@ class Lista
 int main()
 {
     Lista* lista = new Lista();
-    //lista->insertar2(5);
-    //lista->insertar2(3);
-    //lista->insertar2(7);
-    //lista->insertar2(9);
+    lista->insertar(5);
+    lista->insertar(3);
+    lista->insertar(7);
+    lista->insertar(9);
     int option;
     do
     {
@@ -160,7 +184,7 @@ int main()
             lista->mostrarDatos();
             break;
         case 3:
-            //lista->ordenarDatos();
+            lista->ordenarDatos();
             break;
         case 5:
             cout<<"Termino el programa"<<endl;

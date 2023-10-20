@@ -1,0 +1,177 @@
+#include <iostream>
+
+using namespace std;
+
+class Figura
+{
+    private:
+        
+        int numLados;
+    public:
+        Figura(int numLados)
+        {
+            this->numLados=numLados;
+        }
+        int getNumLados()
+        {
+            return numLados;
+        }
+};
+
+class Nodo
+{
+    private:
+        Figura* figura;
+        Nodo* next;
+    public:
+        Nodo(int numLados)
+        {
+            figura = new Figura(numLados);
+            next = nullptr;
+        }
+        Figura* getFigura()
+        {
+            return figura;
+        }
+        Nodo* getNext()
+        {
+            return next;
+        }
+        void setNext(Nodo* nodo)
+        {
+            next = nodo;
+        }
+        
+};
+class Lista
+{
+    private:
+        Nodo* first,*last;
+    public:
+        Lista()
+        {
+            first = nullptr;
+            last = nullptr;
+        }
+        void insertar(int lados)
+        {
+            Nodo* nuevo = new Nodo(lados);
+            if(first == nullptr)
+            {
+                first = nuevo;
+                last = nuevo;
+                first->setNext(last);
+                last->setNext(first);
+                return;
+            }
+            else
+            {
+                nuevo->setNext(first);
+                last->setNext(nuevo);
+                last = nuevo;
+                return;
+            }
+        }
+        void insertar2(int lados)
+        {
+            Nodo*nuevo = new Nodo(lados);
+            if(first==nullptr)
+            {
+                first=nuevo;
+                last=nuevo;
+                first->setNext(last);
+                last->setNext(first);
+            }
+            else
+            {
+                if(nuevo->getFigura()->getNumLados()<first->getFigura()->getNumLados())
+                {
+                    last->setNext(nuevo);
+                    nuevo->setNext(first);
+                    first=nuevo;
+                }
+                else
+                {
+                    Nodo* actual = first;
+                    Nodo* anterior = actual;
+                    while(lados>actual->getFigura()->getNumLados() && actual->getNext()==first)
+                    {
+                        anterior = actual;
+                        actual = actual->getNext();
+                    }
+                    if(lados>actual->getFigura()->getNumLados())
+                    {
+                        actual->setNext(nuevo);
+                        nuevo->setNext(first);
+                        last=nuevo;
+                    }
+                    else
+                    {
+                        anterior->setNext(nuevo);
+                        nuevo->setNext(actual);
+                    }
+                }
+            }
+        }
+        void mostrarDatos()
+        {
+            Nodo* actual = first;
+            if(actual == nullptr)
+            {
+                cout<<"No hay datos que mostrar"<<endl;
+                return;
+            }
+            do
+            {
+                cout<<actual->getFigura()->getNumLados()<<endl;
+                actual=actual->getNext();
+            } while (actual!=first);
+            
+        }
+};
+
+
+
+int main()
+{
+    Lista* lista = new Lista();
+    //lista->insertar2(5);
+    //lista->insertar2(3);
+    //lista->insertar2(7);
+    //lista->insertar2(9);
+    int option;
+    do
+    {
+        int lados;
+        cout<<"Ingrese una opcion: "<<endl;
+        cout<<"Opción 1 insertar: "<<endl;
+        cout<<"Opción 2 mostrar datos: "<<endl;
+        cout<<"Opción 3 ordenar: "<<endl;
+        cout<<"Opción 5 salir: "<<endl;
+        cin>>option;
+        switch (option)
+        {
+        case 1:
+            cout<<"Ingrese los lados de la figura: "<<endl;cin>>lados;
+            lista->insertar2(lados);
+            break;
+        case 2:
+            cout<<"Los datos son:"<<endl;
+            lista->mostrarDatos();
+            break;
+        case 3:
+            //lista->ordenarDatos();
+            break;
+        case 5:
+            cout<<"Termino el programa"<<endl;
+            break;
+        default:
+            cout<<"Ingresa un valor valido!!"<<endl;
+            break;
+        }
+    } while (option != 5);
+    
+    
+    
+    return 0;
+}

@@ -143,7 +143,7 @@ class Lista
 
                 do
                 {
-                    if(actual->getFigura()->getNumLados()>siguiente->getFigura()->getNumLados())
+                    if(siguiactual->getFigura()->getNumLados()>ente->getFigura()->getNumLados())
                     {
                         int num =actual->getFigura()->getNumLados();
                         actual->getFigura()->setNumLados(siguiente->getFigura()->getNumLados());
@@ -152,9 +152,10 @@ class Lista
                     siguiente = siguiente->getNext();
                 } while (siguiente!=first);
                 actual = actual->getNext();
-                siguiente = actual->getNext();
+                siguiente = actual->getNext();//esta linea esta demas?
                 
             } while (actual!=first);
+            
             if(first->getFigura()->getNumLados()>last->getFigura()->getNumLados())
             {
                 int num =first->getFigura()->getNumLados();

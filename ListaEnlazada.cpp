@@ -16,6 +16,10 @@ class Figura
         {
             return numLados;
         }
+        void setNumLados(int numLados)
+        {
+            this->numLados=numLados;
+        }
 };
 
 class Nodo
@@ -131,8 +135,8 @@ class Lista
         void ordenarDatos()
         {
             Nodo* actual = first;
-            Nodo* siguiente,*aux;
-            
+            Nodo* siguiente;
+            int num;
             do
             {
                 siguiente= actual->getNext();
@@ -141,7 +145,9 @@ class Lista
                 {
                     if(actual->getFigura()->getNumLados()>siguiente->getFigura()->getNumLados())
                     {
-                        //Terminar codigo
+                        int num =actual->getFigura()->getNumLados();
+                        actual->getFigura()->setNumLados(siguiente->getFigura()->getNumLados());
+                        siguiente->getFigura()->setNumLados(num);   
                     }
                     siguiente = siguiente->getNext();
                 } while (siguiente!=first);
@@ -149,7 +155,12 @@ class Lista
                 siguiente = actual->getNext();
                 
             } while (actual!=first);
-            
+            if(first->getFigura()->getNumLados()>last->getFigura()->getNumLados())
+            {
+                int num =first->getFigura()->getNumLados();
+                    first->getFigura()->setNumLados(last->getFigura()->getNumLados());
+                    last->getFigura()->setNumLados(num);   
+            }
             
         }
 };

@@ -143,7 +143,7 @@ class Lista
 
                 do
                 {
-                    if(siguiactual->getFigura()->getNumLados()>ente->getFigura()->getNumLados())
+                    if(actual->getFigura()->getNumLados()>siguiente->getFigura()->getNumLados())
                     {
                         int num =actual->getFigura()->getNumLados();
                         actual->getFigura()->setNumLados(siguiente->getFigura()->getNumLados());

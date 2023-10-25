@@ -94,7 +94,7 @@ int main()
         }
         else
         {
-            while (!s1.empty()) //src.top().getPrioridad()<s1.top().getPrioridad()
+            while (!s1.empty())
             {
                 if(src.top().getPrioridad()>s1.top().getPrioridad())
                 {

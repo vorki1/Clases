@@ -152,17 +152,8 @@ class Lista
                     siguiente = siguiente->getNext();
                 } while (siguiente!=first);
                 actual = actual->getNext();
-                siguiente = actual->getNext();//esta linea esta demas?
                 
-            } while (actual!=first);
-            
-            if(first->getFigura()->getNumLados()>last->getFigura()->getNumLados())
-            {
-                int num =first->getFigura()->getNumLados();
-                    first->getFigura()->setNumLados(last->getFigura()->getNumLados());
-                    last->getFigura()->setNumLados(num);   
-            }
-            
+            } while (actual==last);
         }
 };
 

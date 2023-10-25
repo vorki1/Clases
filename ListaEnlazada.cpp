@@ -134,6 +134,7 @@ class Lista
         }
         void ordenarDatos()
         {
+            if(first == nullptr)return;
             Nodo* actual = first;
             Nodo* siguiente;
             int num;

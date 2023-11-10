@@ -1,0 +1,21 @@
+Es recursivo cuando forma parte de si mismo. (Nosotros hemos respondidos ejercicios de manera iterativa)
+
+La recursion si esta mal echa lleva a bucles infinitos
+
+la logica recursiva se piensa antes de programar
+
+Tipos de recursividad:
+Simple o directa- una funcion se llama a si misma
+Mutua o indirecta- una funcion se llama con otras funciones
+
+de cabeza: al empezar el codigo llamo a la funcion.
+
+de cola: al final del codigo llamo a la funcion- primero realizo algun tipo de calculo o logica para que el calculo se haga al final (al final cuando retorna, solo finalizan todas las funciones)
+intermedia: la logica se divide en 2 partes.
+multiple: fibonachi, arboles
+anidada: en una sola linea hago 2 llamadas recursivas
+
+una funcion cuando se llama, se usa una pila de memoria que permite usar la recursividad.
+posibilidad de backtracking
+
+ejemplos: escribir un numero decimal en binario

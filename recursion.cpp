@@ -1,22 +1,25 @@
 #include <iostream>
-
+#include <stack>
 using namespace std;
 
-int transformarBinario(int x)
+void moverPila(stack<int> pila)
 {
-    if(x<2)
+    if(!pila.empty())
     {
-
-    }
-    else if(x % 2==0 || x % 2==1)
-    {
-
+        cout<<pila.top()<<endl;
+        pila.pop();
+        moverPila(pila);
     }
 }
 
 int main()
 {
-    //Escribir un numero decimal a binario
-    transformarBinario(5);
+    stack<int> pila,aux1,aux2;
+    pila.push(10);
+    pila.push(7);
+    pila.push(4);
+    pila.push(3);
+    pila.push(1);
+    moverPila(pila);
     return 0;
 }

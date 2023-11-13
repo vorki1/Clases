@@ -1,25 +1,31 @@
 #include <iostream>
 using namespace std;
 
-void torreHanoi(int n, string inicio, string aux, string destino) {
+void torreHanoi(int disco, string partida, string aux, string llegada) {
 
-    if (n == 1) {//Caso base (1 disco pasa directo)
-        cout << "Mueve el disco " << n << " del " << inicio << " al " << destino << endl;
-    } else {//Caso general (origen->Auxiliar; Auxiliar->Destino)
-        torreHanoi(n - 1, inicio, destino, aux); //Movimiento al destino
-        cout << "Mueve el disco " << n << " del " << inicio << " al " << destino << endl;
+    if (disco == 1) //Caso base
+    {
         cout<<"----------------------"<<endl;
-        torreHanoi(n - 1, aux, inicio, destino); //Movimiento del aux al destino
+        cout << "Se mueve el disco " << disco << " del " << partida << " al " << llegada << endl;
+    } 
+    else 
+    {
+        torreHanoi(disco - 1, partida, llegada, aux);
+        cout << "Se mueve el disco " << disco << " del " << partida << " al " << llegada << endl;
+        cout<<"----------------------"<<endl;
+        torreHanoi(disco - 1, aux, partida, llegada);
     }
 }
 
 int main()
 {
     
-    int elementos,movimiento;
+    int discos;
     cout<<"Ingresa cantidad discos: ";
-    cin>>elementos;
-    torreHanoi(elementos,"partida","aux","llegada");
-    cout<<"Apilado en el destino"<<endl;
+    cin>>discos;
+    torreHanoi(discos,"partida","aux","llegada");
+    cout<<"----------------------"<<endl;
+    cout<<" "<<endl;
+    cout<<"Apilado en el llegada"<<endl;
     return 0;
 }
